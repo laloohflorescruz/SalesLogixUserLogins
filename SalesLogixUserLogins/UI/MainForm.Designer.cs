@@ -197,13 +197,14 @@
 			// 
 			// StartButton
 			// 
+			this.StartButton.BackColor = System.Drawing.SystemColors.Control;
 			this.StartButton.Enabled = false;
 			this.StartButton.Location = new System.Drawing.Point(320, 182);
 			this.StartButton.Name = "StartButton";
 			this.StartButton.Size = new System.Drawing.Size(219, 38);
 			this.StartButton.TabIndex = 15;
 			this.StartButton.Text = "Retrieve Logins";
-			this.StartButton.UseVisualStyleBackColor = true;
+			this.StartButton.UseVisualStyleBackColor = false;
 			this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
 			// 
 			// ErrorLabel
@@ -217,6 +218,7 @@
 			// 
 			// ExportButton
 			// 
+			this.ExportButton.BackColor = System.Drawing.SystemColors.Control;
 			this.ExportButton.Image = ((System.Drawing.Image)(resources.GetObject("ExportButton.Image")));
 			this.ExportButton.Location = new System.Drawing.Point(184, 251);
 			this.ExportButton.Name = "ExportButton";
@@ -224,7 +226,7 @@
 			this.ExportButton.TabIndex = 17;
 			this.ExportButton.Text = "Export List";
 			this.ExportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.ExportButton.UseVisualStyleBackColor = true;
+			this.ExportButton.UseVisualStyleBackColor = false;
 			this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
 			// 
 			// DataListView
@@ -325,18 +327,18 @@
 			this.PromoPanel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.PromoPanel.Location = new System.Drawing.Point(12, 537);
 			this.PromoPanel.Name = "PromoPanel";
-			this.PromoPanel.Size = new System.Drawing.Size(552, 22);
+			this.PromoPanel.Size = new System.Drawing.Size(552, 23);
 			this.PromoPanel.TabIndex = 26;
 			this.PromoPanel.Click += new System.EventHandler(this.WebLinkLabel_Click);
 			// 
 			// PromoLabel
 			// 
 			this.PromoLabel.AutoSize = true;
-			this.PromoLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.PromoLabel.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.PromoLabel.ForeColor = System.Drawing.Color.DimGray;
 			this.PromoLabel.Location = new System.Drawing.Point(3, 3);
 			this.PromoLabel.Name = "PromoLabel";
-			this.PromoLabel.Size = new System.Drawing.Size(363, 13);
+			this.PromoLabel.Size = new System.Drawing.Size(382, 16);
 			this.PromoLabel.TabIndex = 0;
 			this.PromoLabel.Text = "Visit customerfx.com for more SalesLogix tools, code, articles, and videos.";
 			this.PromoLabel.Click += new System.EventHandler(this.WebLinkLabel_Click);

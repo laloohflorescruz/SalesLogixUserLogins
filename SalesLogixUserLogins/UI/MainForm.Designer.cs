@@ -54,6 +54,8 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.ResultsLabel = new System.Windows.Forms.Label();
 			this.pictureBox6 = new System.Windows.Forms.PictureBox();
+			this.PromoPanel = new System.Windows.Forms.Panel();
+			this.PromoLabel = new System.Windows.Forms.Label();
 			this.SearchValue = new FX.SalesLogix.Utility.UserLogins.Controls.TextBoxExtended();
 			this.PasswordTextBox = new FX.SalesLogix.Utility.UserLogins.Controls.TextBoxExtended();
 			this.UserTextBox = new FX.SalesLogix.Utility.UserLogins.Controls.TextBoxExtended();
@@ -63,6 +65,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+			this.PromoPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pictureBox1
@@ -237,7 +240,7 @@
 			this.DataListView.Location = new System.Drawing.Point(12, 284);
 			this.DataListView.MultiSelect = false;
 			this.DataListView.Name = "DataListView";
-			this.DataListView.Size = new System.Drawing.Size(552, 254);
+			this.DataListView.Size = new System.Drawing.Size(552, 246);
 			this.DataListView.TabIndex = 18;
 			this.DataListView.UseCompatibleStateImageBehavior = false;
 			this.DataListView.View = System.Windows.Forms.View.Details;
@@ -261,7 +264,7 @@
 			// 
 			this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-			this.pictureBox5.Location = new System.Drawing.Point(12, 544);
+			this.pictureBox5.Location = new System.Drawing.Point(12, 565);
 			this.pictureBox5.Name = "pictureBox5";
 			this.pictureBox5.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -275,7 +278,7 @@
 			this.WebLinkLabel.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.WebLinkLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.WebLinkLabel.ForeColor = System.Drawing.Color.DimGray;
-			this.WebLinkLabel.Location = new System.Drawing.Point(471, 546);
+			this.WebLinkLabel.Location = new System.Drawing.Point(471, 567);
 			this.WebLinkLabel.Name = "WebLinkLabel";
 			this.WebLinkLabel.Size = new System.Drawing.Size(93, 14);
 			this.WebLinkLabel.TabIndex = 20;
@@ -287,7 +290,7 @@
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(32, 546);
+			this.label7.Location = new System.Drawing.Point(32, 567);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(188, 14);
 			this.label7.TabIndex = 21;
@@ -311,6 +314,32 @@
 			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox6.TabIndex = 25;
 			this.pictureBox6.TabStop = false;
+			// 
+			// PromoPanel
+			// 
+			this.PromoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.PromoPanel.BackColor = System.Drawing.Color.LightGray;
+			this.PromoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.PromoPanel.Controls.Add(this.PromoLabel);
+			this.PromoPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.PromoPanel.Location = new System.Drawing.Point(12, 537);
+			this.PromoPanel.Name = "PromoPanel";
+			this.PromoPanel.Size = new System.Drawing.Size(552, 22);
+			this.PromoPanel.TabIndex = 26;
+			this.PromoPanel.Click += new System.EventHandler(this.WebLinkLabel_Click);
+			// 
+			// PromoLabel
+			// 
+			this.PromoLabel.AutoSize = true;
+			this.PromoLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.PromoLabel.ForeColor = System.Drawing.Color.DimGray;
+			this.PromoLabel.Location = new System.Drawing.Point(3, 3);
+			this.PromoLabel.Name = "PromoLabel";
+			this.PromoLabel.Size = new System.Drawing.Size(363, 13);
+			this.PromoLabel.TabIndex = 0;
+			this.PromoLabel.Text = "Visit customerfx.com for more SalesLogix tools, code, articles, and videos.";
+			this.PromoLabel.Click += new System.EventHandler(this.WebLinkLabel_Click);
 			// 
 			// SearchValue
 			// 
@@ -352,7 +381,8 @@
 			// 
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(576, 567);
+			this.ClientSize = new System.Drawing.Size(576, 588);
+			this.Controls.Add(this.PromoPanel);
 			this.Controls.Add(this.pictureBox6);
 			this.Controls.Add(this.SearchValue);
 			this.Controls.Add(this.ResultsLabel);
@@ -391,6 +421,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+			this.PromoPanel.ResumeLayout(false);
+			this.PromoPanel.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -426,5 +458,7 @@
 		private System.Windows.Forms.Label ResultsLabel;
 		private Controls.TextBoxExtended SearchValue;
 		private System.Windows.Forms.PictureBox pictureBox6;
+		private System.Windows.Forms.Panel PromoPanel;
+		private System.Windows.Forms.Label PromoLabel;
 	}
 }

@@ -13,6 +13,7 @@ namespace FX.SalesLogix.Utility.UserLogins.UI
 		public const string _DATABASENOTSALESLOGIX = "Not a SalesLogix database. Select another.";
 		public const string _NOPASSWORD = "Enter a SQL password to continue.";
 		public const string _GENERALERROR = "Error: {0}";
+		public const string _NUMBERLOGINSRETRIEVED = "{0} user logins retrieved";
 
 		public MainForm()
 		{
@@ -93,27 +94,14 @@ namespace FX.SalesLogix.Utility.UserLogins.UI
 
 		private void StartButton_Click(object sender, EventArgs e)
 		{
-			DataListView.Items.Clear();
-
 			try
 			{
 				Cursor = Cursors.WaitCursor;
 
 				var sqlManager = new SqlManager();
 				var logins = sqlManager.GetLogins(ServerCombo.Text, DatabaseCombo.Text, UserTextBox.Text, PasswordTextBox.Text);
-				ResultsLabel.Text = string.Format("{0} user logins retrieved.", logins.Count);
-
-				foreach (var userLogin in logins)
-				{
-					var listItem = new ListViewItem();
-					listItem.Text = userLogin.User;
-					listItem.Tag = userLogin.ID;
-					listItem.SubItems.Add(userLogin.LoginName);
-					listItem.SubItems.Add(userLogin.Password);
-
-					DataListView.Items.Add(listItem);
-				}
 				DataListView.Tag = logins;
+				PopulateListView();
 			}
 			catch (Exception exception)
 			{
@@ -123,6 +111,28 @@ namespace FX.SalesLogix.Utility.UserLogins.UI
 			{
 				Cursor = Cursors.Default;
 			}
+		}
+
+		private void PopulateListView()
+		{
+			DataListView.Items.Clear();
+
+			var logins = (List<UserLogin>) DataListView.Tag;
+			if (logins == null)
+				return;
+
+			foreach (var userLogin in logins)
+			{
+				var listItem = new ListViewItem();
+				listItem.Text = userLogin.User;
+				listItem.Tag = userLogin.ID;
+				listItem.SubItems.Add(userLogin.LoginName);
+				listItem.SubItems.Add(userLogin.Password);
+
+				DataListView.Items.Add(listItem);
+			}
+
+			ResultsLabel.Text = string.Format(_NUMBERLOGINSRETRIEVED, DataListView.Items.Count);
 		}
 
 		private void ExportButton_Click(object sender, EventArgs e)
@@ -149,6 +159,35 @@ namespace FX.SalesLogix.Utility.UserLogins.UI
 						MessageBox.Show(this, exception.Message, "Error Exporting File", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 				}
+			}
+		}
+
+		private void SearchButton_Click(object sender, EventArgs e)
+		{
+			if (DataListView.Tag == null)
+				return;
+
+			for (var i = DataListView.Items.Count - 1; -1 < i; i--)
+			{
+				if (!DataListView.Items[i].SubItems[0].Text.ToUpper().StartsWith(SearchValue.Text.ToUpper()) && !DataListView.Items[i].SubItems[1].Text.ToUpper().StartsWith(SearchValue.Text.ToUpper()))
+					DataListView.Items[i].Remove();
+			}
+		}
+
+		private void SearchValue_TextChanged(object sender, EventArgs e)
+		{
+			if (DataListView.Tag == null)
+				return;
+
+			var prevLength = Convert.ToInt32(SearchValue.Tag);
+			SearchValue.Tag = SearchValue.Text.Length;
+
+			if (prevLength < SearchValue.Text.Length)
+				SearchButton_Click(null, EventArgs.Empty);
+			else
+			{
+				PopulateListView();
+				SearchButton_Click(null, EventArgs.Empty);
 			}
 		}
 

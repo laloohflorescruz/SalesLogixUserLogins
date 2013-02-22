@@ -46,13 +46,15 @@
 			this.ErrorLabel = new System.Windows.Forms.Label();
 			this.ExportButton = new System.Windows.Forms.Button();
 			this.DataListView = new System.Windows.Forms.ListView();
-			this.pictureBox5 = new System.Windows.Forms.PictureBox();
-			this.WebLinkLabel = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.pictureBox5 = new System.Windows.Forms.PictureBox();
+			this.WebLinkLabel = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
 			this.ResultsLabel = new System.Windows.Forms.Label();
+			this.pictureBox6 = new System.Windows.Forms.PictureBox();
+			this.SearchValue = new FX.SalesLogix.Utility.UserLogins.Controls.TextBoxExtended();
 			this.PasswordTextBox = new FX.SalesLogix.Utility.UserLogins.Controls.TextBoxExtended();
 			this.UserTextBox = new FX.SalesLogix.Utility.UserLogins.Controls.TextBoxExtended();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,6 +62,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pictureBox1
@@ -212,9 +215,9 @@
 			// ExportButton
 			// 
 			this.ExportButton.Image = ((System.Drawing.Image)(resources.GetObject("ExportButton.Image")));
-			this.ExportButton.Location = new System.Drawing.Point(12, 255);
+			this.ExportButton.Location = new System.Drawing.Point(184, 251);
 			this.ExportButton.Name = "ExportButton";
-			this.ExportButton.Size = new System.Drawing.Size(132, 23);
+			this.ExportButton.Size = new System.Drawing.Size(132, 25);
 			this.ExportButton.TabIndex = 17;
 			this.ExportButton.Text = "Export List";
 			this.ExportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -238,6 +241,21 @@
 			this.DataListView.TabIndex = 18;
 			this.DataListView.UseCompatibleStateImageBehavior = false;
 			this.DataListView.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader1
+			// 
+			this.columnHeader1.Text = "User";
+			this.columnHeader1.Width = 225;
+			// 
+			// columnHeader2
+			// 
+			this.columnHeader2.Text = "Login Name";
+			this.columnHeader2.Width = 150;
+			// 
+			// columnHeader3
+			// 
+			this.columnHeader3.Text = "Password";
+			this.columnHeader3.Width = 150;
 			// 
 			// pictureBox5
 			// 
@@ -275,29 +293,37 @@
 			this.label7.TabIndex = 21;
 			this.label7.Text = "© 2013 Customer FX Corporation";
 			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.Text = "User";
-			this.columnHeader1.Width = 225;
-			// 
-			// columnHeader2
-			// 
-			this.columnHeader2.Text = "Login Name";
-			this.columnHeader2.Width = 150;
-			// 
-			// columnHeader3
-			// 
-			this.columnHeader3.Text = "Password";
-			this.columnHeader3.Width = 150;
-			// 
 			// ResultsLabel
 			// 
 			this.ResultsLabel.ForeColor = System.Drawing.Color.Gray;
-			this.ResultsLabel.Location = new System.Drawing.Point(309, 255);
+			this.ResultsLabel.Location = new System.Drawing.Point(325, 255);
 			this.ResultsLabel.Name = "ResultsLabel";
-			this.ResultsLabel.Size = new System.Drawing.Size(255, 23);
+			this.ResultsLabel.Size = new System.Drawing.Size(239, 23);
 			this.ResultsLabel.TabIndex = 22;
 			this.ResultsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			// 
+			// pictureBox6
+			// 
+			this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+			this.pictureBox6.Location = new System.Drawing.Point(12, 253);
+			this.pictureBox6.Name = "pictureBox6";
+			this.pictureBox6.Size = new System.Drawing.Size(21, 21);
+			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox6.TabIndex = 25;
+			this.pictureBox6.TabStop = false;
+			// 
+			// SearchValue
+			// 
+			this.SearchValue.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.SearchValue.IsPassword = false;
+			this.SearchValue.Location = new System.Drawing.Point(34, 252);
+			this.SearchValue.Name = "SearchValue";
+			this.SearchValue.Size = new System.Drawing.Size(144, 23);
+			this.SearchValue.TabIndex = 24;
+			this.SearchValue.Tag = "0";
+			this.SearchValue.WatermarkColor = System.Drawing.Color.Silver;
+			this.SearchValue.WatermarkText = "Enter user to search";
+			this.SearchValue.TextChanged += new System.EventHandler(this.SearchValue_TextChanged);
 			// 
 			// PasswordTextBox
 			// 
@@ -327,6 +353,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(576, 567);
+			this.Controls.Add(this.pictureBox6);
+			this.Controls.Add(this.SearchValue);
 			this.Controls.Add(this.ResultsLabel);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.WebLinkLabel);
@@ -362,6 +390,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -395,5 +424,7 @@
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
 		private System.Windows.Forms.Label ResultsLabel;
+		private Controls.TextBoxExtended SearchValue;
+		private System.Windows.Forms.PictureBox pictureBox6;
 	}
 }

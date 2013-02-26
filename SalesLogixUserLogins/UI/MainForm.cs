@@ -57,6 +57,7 @@ namespace FX.SalesLogix.Utility.UserLogins.UI
 			}
 
 			this.Cursor = Cursors.WaitCursor;
+			DatabaseCombo.Items.Clear();
 
 			try
 			{

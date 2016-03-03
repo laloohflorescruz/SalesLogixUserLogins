@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SalesLogix User Logins")]
-[assembly: AssemblyDescription("Retrieve logins for SalesLogix users")]
+[assembly: AssemblyTitle("Infor CRM User Logins")]
+[assembly: AssemblyDescription("Retrieve logins for Infor CRM users")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Customer FX Corporation")]
-[assembly: AssemblyProduct("SalesLogix User Logins")]
-[assembly: AssemblyCopyright("Copyright © Customer FX Corporation 2013")]
+[assembly: AssemblyProduct("Infor CRM User Logins")]
+[assembly: AssemblyCopyright("Copyright © Customer FX Corporation 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

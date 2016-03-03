@@ -200,5 +200,16 @@ namespace FX.SalesLogix.Utility.UserLogins.UI
 			}
 			catch { }
 		}
-	}
+
+        private void DataListView_DoubleClick(object sender, EventArgs e)
+        {
+            var item = DataListView.SelectedItems.Count > 0 ? DataListView.SelectedItems[0] : null;
+            if (item == null) return;
+            
+            using (var dlg = new LoginDetail(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.Tag.ToString()))
+            {
+                dlg.ShowDialog(this);
+            }
+        }
+    }
 }
